@@ -26,7 +26,7 @@ models:
   dbt_learn:
     +materialized: table
     +file_format: parquet
-    +location: 'btc_usdt_partitioned'
+    +location: 'raw_btc_transactions'
     +partition_by: ['date']
 
 seeds:
