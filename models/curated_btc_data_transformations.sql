@@ -15,7 +15,14 @@ features AS (
         type,
         strike,
         open,
+        high,
+        low,
         close,
+        volume_contracts,
+        volume_usdt,
+        best_buy_iv,
+        best_sell_iv,
+        mark_iv,
         (close - open) / NULLIF(open, 0) AS return_pct,
         high - low AS intraday_volatility,
         (best_buy_iv + best_sell_iv) / 2 AS avg_implied_volatility,
@@ -31,4 +38,3 @@ features AS (
 )
 SELECT *
 FROM features
-WHERE avg_implied_volatility IS NOT NULL
