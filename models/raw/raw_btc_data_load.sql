@@ -1,20 +1,14 @@
-{{ config(
-    materialized='view'
-) }}
+{{ config(materialized='view') }}
 
-WITH combined_eoh_summary_data AS (
-    SELECT *
-    FROM {{ ref('BTCUSDT-EOHSummary-2023-10-20') }}
-    UNION ALL
-    SELECT *
-    FROM {{ ref('BTCUSDT-EOHSummary-2023-10-21') }}
-    UNION ALL
-    SELECT *
-    FROM {{ ref('BTCUSDT-EOHSummary-2023-10-22') }}
-    UNION ALL
-    SELECT *
-    FROM {{ ref('BTCUSDT-EOHSummary-2023-10-23') }}
+WITH raw_data AS (
+    {{ dynamic_union([
+        'BTCUSDT-EOHSummary-2023-10-20',
+        'BTCUSDT-EOHSummary-2023-10-21',
+        'BTCUSDT-EOHSummary-2023-10-22',
+        'BTCUSDT-EOHSummary-2023-10-23'
+    ]) }}
 )
+
 SELECT
     date,
     hour,
@@ -42,4 +36,4 @@ SELECT
     theta,
     openinterest_contracts,
     openinterest_usdt
-FROM combined_eoh_summary_data
+FROM raw_data

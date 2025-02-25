@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: main
+    tables:
+      - name: BTCUSDT-EOHSummary-2023-10-20
+      - name: BTCUSDT-EOHSummary-2023-10-21
+      - name: BTCUSDT-EOHSummary-2023-10-22
+      - name: BTCUSDT-EOHSummary-2023-10-23
+
+models:
+  - name: raw_btc_data_load
+    description: "Raw BTC data dynamically ingested from EOH summary tables using native Jinja."
+    columns:
+      - name: date
+        description: "Transaction date."
+        tests:
+          - not_null
+      - name: open
+        description: "Opening price of the asset."
+        tests:
+          - not_null
+      - name: close
+        description: "Closing price of the asset."
+        tests:
+          - not_null
