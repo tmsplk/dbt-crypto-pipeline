@@ -6,7 +6,7 @@ WITH clean_data AS (
     SELECT *
     FROM {{ ref('clean_btc_data_transformations') }}
 ),
-features AS (
+curated_eoh_summary_data AS (
     SELECT
         date,
         hour,
@@ -37,4 +37,4 @@ features AS (
     FROM clean_data
 )
 SELECT *
-FROM features
+FROM curated_eoh_summary_data

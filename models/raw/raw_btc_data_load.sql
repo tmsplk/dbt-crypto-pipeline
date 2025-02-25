@@ -1,8 +1,8 @@
 {{ config(
-    materialized='table'
+    materialized='view'
 ) }}
 
-WITH raw_data AS (
+WITH combined_eoh_summary_data AS (
     SELECT *
     FROM {{ ref('BTCUSDT-EOHSummary-2023-10-20') }}
     UNION ALL
@@ -42,5 +42,4 @@ SELECT
     theta,
     openinterest_contracts,
     openinterest_usdt
-FROM raw_data
-WHERE volume_usdt > 0
+FROM combined_eoh_summary_data

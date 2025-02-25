@@ -1,8 +1,8 @@
 {{ config(
-    materialized='table'
+    materialized='view'
 ) }}
 
-WITH base AS (
+WITH clean_eoh_summary_data AS (
     SELECT
         CAST(date AS DATE) AS date,
         CAST(hour AS INTEGER) AS hour,
@@ -34,5 +34,5 @@ WITH base AS (
     WHERE volume_usdt > 0
 )
 SELECT DISTINCT *
-FROM base
-WHERE open IS NOT NULL AND close IS NOT NULL
+FROM clean_eoh_summary_data
+WHERE open IS NOT NULL AND close IS NOT NULL AND volume_usdt > 0

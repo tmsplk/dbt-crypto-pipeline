@@ -8,7 +8,7 @@ WITH curated_data AS (
     FROM {{ ref('curated_btc_data_transformations') }}
 ),
 
-daily_aggregation AS (
+daily_aggregated_data AS (
     SELECT
         date,
         symbol,
@@ -30,4 +30,4 @@ daily_aggregation AS (
 )
 
 SELECT *
-FROM daily_aggregation
+FROM daily_aggregated_data
