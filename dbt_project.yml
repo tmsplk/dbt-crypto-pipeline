@@ -24,10 +24,8 @@ clean-targets:
 
 models:
   dbt_learn:
-    +materialized: table
-    +file_format: parquet
-    +location: 'raw_btc_transactions'
-    +partition_by: ['date']
+    +docs:
+      node_color: '#FFD700'
 
 seeds:
   dbt_learn:
