@@ -1,15 +1,10 @@
-Welcome to your new dbt project!
+Repository contains DBT project focused on crypto data from binance.com
 
-### Using the starter project
+### Running the project
 
-Try running the following commands:
+If you have dbt set up on your system, you can run the project in the following way:
+- dbt seed
 - dbt run
 - dbt test
 
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+Data retrieved from: https://data.binance.vision/?prefix=data/
