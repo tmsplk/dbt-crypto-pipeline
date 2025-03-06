@@ -1,4 +1,4 @@
-# dbt Learn Project
+# dbt Crypto Pipeline Project
 
 ## 📌 Overview
 This repository contains a **dbt (Data Build Tool) project** that processes cryptocurrency data using DuckDB. The project follows a structured transformation approach with defined layers:
