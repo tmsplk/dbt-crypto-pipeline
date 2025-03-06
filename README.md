@@ -31,7 +31,7 @@ The project leverages dbt's modeling capabilities, macros, and packages to strea
 ## 🛠 Installation
 ```sh
 # Clone the repository
-git clone <repo_url>
+git clone git@github.com:tmsplk/dbt-crypto-pipeline.git
 cd dbt_learn-main
 
 # Install dbt (if not installed)
